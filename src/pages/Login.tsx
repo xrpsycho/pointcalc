@@ -24,7 +24,7 @@ const Login = () => {
     const validCredentials = [
       { id: "pym1t", password: "havocxr" },
       { id: "test", password: "password" },
-      { id: "admin", password: "adminnn" }
+      { id: "admin", password: "admin" }
     ];
 
     const isValidUser = validCredentials.some(
