@@ -109,6 +109,13 @@ All colors MUST be HSL for proper theming.
     box-shadow: var(--shadow-glow);
     transform: scale(1.05);
   }
+  
+  /* Custom gaming input styles */
+  .gaming-input {
+    @apply bg-card/20 border-border/50 backdrop-blur-sm;
+    @apply focus:border-primary/50 focus:ring-primary/20;
+    @apply transition-all duration-300;
+  }
 }
 
 @layer base {

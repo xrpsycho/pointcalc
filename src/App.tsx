@@ -7,7 +7,9 @@ import Index from "./pages/Index";
 import TournamentSetup from "./pages/TournamentSetup";
 import PointsSetup from "./pages/PointsSetup";
 import Tournament from "./pages/Tournament";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import AuthGuard from "./components/AuthGuard";
 
 const queryClient = new QueryClient();
 
@@ -18,10 +20,11 @@ const App = () => (
         <Toaster />
         <Sonner />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/setup" element={<TournamentSetup />} />
-          <Route path="/points-setup" element={<PointsSetup />} />
-          <Route path="/tournament" element={<Tournament />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<AuthGuard><Index /></AuthGuard>} />
+          <Route path="/setup" element={<AuthGuard><TournamentSetup /></AuthGuard>} />
+          <Route path="/points-setup" element={<AuthGuard><PointsSetup /></AuthGuard>} />
+          <Route path="/tournament" element={<AuthGuard><Tournament /></AuthGuard>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
