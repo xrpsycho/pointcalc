@@ -21,8 +21,19 @@ const Login = () => {
     // Simulate loading for better UX
     await new Promise(resolve => setTimeout(resolve, 500));
 
-    if (id === "pym1t" && password === "havocxr") {
+    const validCredentials = [
+      { id: "pym1t", password: "havocxr" },
+      { id: "test", password: "password" },
+      { id: "admin", password: "adminnn" }
+    ];
+
+    const isValidUser = validCredentials.some(
+      cred => cred.id === id && cred.password === password
+    );
+
+    if (isValidUser) {
       localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("userId", id);
       toast({
         title: "Welcome back!",
         description: "Successfully logged in to PointCalc.",
